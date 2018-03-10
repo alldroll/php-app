@@ -27,6 +27,8 @@ services:
             - 3306:3306
         volumes:
             - ./mysql/mysql.d:/etc/mysql/conf.d
+            # https://stackoverflow.com/questions/39175194/docker-compose-persistent-data-mysql
+            - ../dump:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: ""
             MYSQL_USER: "app"
