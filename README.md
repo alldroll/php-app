@@ -44,3 +44,4 @@
 * [autoload](http://php.net/manual/ru/language.oop5.autoload.php)
 * [docker](https://www.docker.com/)
 * [composer](https://getcomposer.org/)
+* [debug](https://medium.com/@pablofmorales/xdebug-with-docker-and-phpstorm-786da0d0fad2)
