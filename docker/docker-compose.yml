@@ -1,7 +1,7 @@
 version: '2'
 services:
     web:
-        image: nginx:latest
+        image: nginx:1.13.9
         ports:
             - 8080:80
         volumes:
@@ -10,22 +10,21 @@ services:
     php:
         build: .
         volumes:
-            - ..:/data:delegated
-            - ./php/scripts:/docker-entrypoint.d
-            - ./php/custom/php.ini:/usr/local/etc/php/php.ini
+            - ..:/data
+            - ./php/custom/php.ini:/usr/local/etc/php/conf.d/custom.ini
         working_dir: /data
         expose:
             - 9000
         command: php-fpm -R -y /data/docker/php/php-fpm.conf
     composer:
-        image: composer:latest
+        image: composer:1.6.3
         volumes:
             - ..:/app
         command: install
     mysql:
-        image: mysql:latest
+        image: mysql:5.7.21
         ports:
-            - 3306:3306
+            - 3307:3306 # avoid local mysql port busy
         volumes:
             - ./mysql/mysql.d:/etc/mysql/conf.d
             # https://stackoverflow.com/questions/39175194/docker-compose-persistent-data-mysql
