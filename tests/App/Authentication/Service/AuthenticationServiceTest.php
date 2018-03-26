@@ -5,7 +5,7 @@ namespace AppTest\App\Authentication\Service;
 use App\Authentication\Repository\UserRepositoryInterface;
 use PHPUnit\Framework\TestCase;
 
-class AuthorizationServiceTest extends TestCase
+class AuthenticationServiceTest extends TestCase
 {
 	public function testShouldReturnsAnonymousToken()
 	{
@@ -17,7 +17,7 @@ class AuthorizationServiceTest extends TestCase
 			->with($someId)
 			->willReturn(null);
 
-		// $service = new AuthorizationService($repository, ...);
+		// $service = new AuthenticationService($repository, ...);
 		// $userToken = $service->authenticate($credentials)
 		// $this->assertTrue($userToken->isAnonymous());
 	}
